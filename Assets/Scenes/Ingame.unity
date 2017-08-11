@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 1426351084}
   - component: {fileID: 1426351083}
   - component: {fileID: 1426351086}
+  - component: {fileID: 1426351087}
   m_Layer: 0
   m_Name: Hamburger
   m_TagString: Untagged
@@ -401,6 +402,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1426351087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1426351082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d995a036e043d4992454a23f4a0d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502540923
 GameObject:
   m_ObjectHideFlags: 0

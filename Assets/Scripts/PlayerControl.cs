@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     public float speed;
+    private 
     
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,6 @@ public class PlayerControl : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("aaa");
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Debug.Log("Hit");
