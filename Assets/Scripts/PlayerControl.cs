@@ -22,13 +22,4 @@ public class PlayerControl : MonoBehaviour {
             transform.Translate(Vector2.right * speed);
         }
     }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("Hit");
-            Destroy(other.gameObject);
-        }
-    }
 }
