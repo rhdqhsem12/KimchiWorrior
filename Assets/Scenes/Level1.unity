@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSound: {fileID: 82296238303249118, guid: c981244779a583b49a67803e319caf9b, type: 2}
+  jumpSound: {fileID: 82005211220361574, guid: 796bce492da0f5f4d85bb2d66266cc7e, type: 2}
 --- !u!4 &889478113
 Transform:
   m_ObjectHideFlags: 0
@@ -937,7 +938,7 @@ GameObject:
   - component: {fileID: 1896591036}
   - component: {fileID: 1896591035}
   m_Layer: 0
-  m_Name: roof-tile-1679737_960_720
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,7 +976,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 197a144283db96348ae6baec84806176, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31321444bf1eba4468f818e7b4f80ff9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -992,8 +993,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1896591034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 5}
-  m_LocalScale: {x: 1.8298197, y: 1.8298203, z: 1.8298203}
+  m_LocalPosition: {x: 0, y: -0, z: 5}
+  m_LocalScale: {x: 1.67, y: 1.67, z: 1.67}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5

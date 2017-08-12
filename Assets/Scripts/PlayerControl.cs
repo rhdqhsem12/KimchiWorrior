@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKey("up") && !anim.GetBool("isJumping"))
         {
             ySpeed = jumpSpeed;
+            SoundManager.instance.PlayJumpSound();
             anim.SetBool("isJumping", true);
         }
 
@@ -50,7 +51,7 @@ public class PlayerControl : MonoBehaviour {
 
         bool isAttacked = Input.GetKeyDown(KeyCode.Z);
         if (isAttacked && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
-            SoundManager.instance.PlaySound();
+            SoundManager.instance.PlayHitSound();
         anim.SetBool("isAttack", isAttacked);
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
         {

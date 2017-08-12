@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 	public AudioSource hitSound;
-	private AudioSource hitSoundObj;
+	private AudioSource hitSoundIns;
+    public AudioSource jumpSound;
+    private AudioSource jumpSoundIns;
 	// Use this for initialization
 	public static SoundManager instance;
 
 	void Start () {
 		if (SoundManager.instance == null)
 			SoundManager.instance = this;
-		hitSoundObj = Instantiate (hitSound);
+		hitSoundIns = Instantiate(hitSound);
+        jumpSoundIns = Instantiate(jumpSound);
 	}
-	public void PlaySound(){
-		hitSoundObj.Play();
+	public void PlayHitSound(){
+		hitSoundIns.Play();
 	}
-	// Update is called once per frame
-	void Update () {
+    public void PlayJumpSound()
+    {
+        jumpSoundIns.Play();
+    }
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
