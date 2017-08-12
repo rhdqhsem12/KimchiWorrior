@@ -80,5 +80,18 @@ public class PlayerControl : MonoBehaviour {
 
             ccd.enabled = false;
         }
+        if (hp <= 0)
+        {
+            BgmManager.instance.StopBgm();
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
 	}
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "EnemyAttack")
+        {
+            hp--;
+        }
+    }
 }

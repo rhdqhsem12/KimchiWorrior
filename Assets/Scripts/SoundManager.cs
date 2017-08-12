@@ -11,8 +11,14 @@ public class SoundManager : MonoBehaviour {
 	public static SoundManager instance;
 
 	void Start () {
-		if (SoundManager.instance == null)
-			SoundManager.instance = this;
+		if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
 		hitSoundIns = Instantiate(hitSound);
         jumpSoundIns = Instantiate(jumpSound);
 	}

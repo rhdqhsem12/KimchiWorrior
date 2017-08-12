@@ -9,18 +9,27 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (GameManager.instance == null)
-            GameManager.instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }   
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         enemyNum = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log(enemyNum);
         
         if(enemyNum == 0)
         {
-            Instantiate(goArrow);
+            if (GameObject.Find("Go Arrow(Clone)") == null)
+                Instantiate(goArrow);
         }
 	}
+
+    
 }
