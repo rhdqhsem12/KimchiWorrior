@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class EnemyHamburger : MonoBehaviour {
+    public bool isStart;
     public int hp;
-    public int speed;
+    public float speed;
+    public float abst;
     private Animator anim;
     private BoxCollider2D ccd;
 
@@ -16,6 +18,19 @@ public class EnemyHamburger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        GameObject player = GameObject.Find("Player");
+        abst =  Mathf.Abs(player.transform.position.x - transform.position.x);
+       
+        if(abst <= 5)
+        {
+            if(player.transform.position.x > transform.position.x)
+            {
+                transform.Translate(Vector2.right * speed);
+            }
+            else
+            transform.Translate(Vector2.left * speed);
+        }
+        
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.attack"))
         {
             ccd.enabled = true;
