@@ -48,15 +48,17 @@ public class PlayerControl : MonoBehaviour {
             anim.SetBool("isJumping", false);
         }
 
-        anim.SetBool("isAttack", Input.GetKeyDown(KeyCode.Z));
+        bool isAttacked = Input.GetKeyDown(KeyCode.Z);
+        if (isAttacked && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
+            SoundManager.instance.PlaySound();
+        anim.SetBool("isAttack", isAttacked);
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
         {
             ccd.enabled = true;
-			SoundManager.instance.PlaySound();
-		}
+        }
         else
         {
-			
+
             ccd.enabled = false;
         }
 	}
