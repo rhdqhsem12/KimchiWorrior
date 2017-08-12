@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     public float speed;
-    private 
+	public float _Attack;
+	private Animator anim;
+
     
 	// Use this for initialization
 	void Start () {
-		
+		anim = this.GetComponent<Animator> ();	
 	}
 	
 	// Update is called once per frame
@@ -21,5 +23,12 @@ public class PlayerControl : MonoBehaviour {
         {
             transform.Translate(Vector2.right * speed);
         }
-    }
-}
+		if (Input.GetKeyDown(KeyCode.Z) || Input.GetKey(KeyCode.Z)) {
+			anim.SetFloat ("_Attack", 1);
+		}
+		if(Input.GetKeyUp (KeyCode.Z))
+			{
+			anim.SetFloat ("_Attack", 0);
+   			 }
+	}
+			}
