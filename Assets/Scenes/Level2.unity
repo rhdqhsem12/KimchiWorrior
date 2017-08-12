@@ -137,7 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNum: 0
   goArrow: {fileID: 1759032930656904, guid: 67b6f72ee8a4c6a4cb1b1c94857b3ba7, type: 2}
-  bgm: {fileID: 82290992821970256, guid: cb67b21d0dc60cd48b278b9575effe84, type: 2}
 --- !u!4 &175040087
 Transform:
   m_ObjectHideFlags: 0
@@ -995,7 +994,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 31321444bf1eba4468f818e7b4f80ff9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73d4d1599edc598419cc8c82d3a62b4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1012,8 +1011,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1896591034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 5}
-  m_LocalScale: {x: 1.67, y: 1.67, z: 1.67}
+  m_LocalPosition: {x: 0, y: 0.53, z: 5}
+  m_LocalScale: {x: 0.39162192, y: 0.391622, z: 0.391622}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
