@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
+    public int hp;
     public float speed;
     public float jumpSpeed;
     public float gravity;
@@ -20,13 +22,29 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        GameObject.Find("Canvas").transform.Find("Health Bar").GetComponent<RectTransform>().sizeDelta = new Vector2(20 * hp, 100);
+
         if (Input.GetKey("left"))
         {
             transform.Translate(Vector2.left * speed);
+            if(transform.position.x < -6.3)
+            {
+                float y = transform.position.y;
+                transform.position = new Vector2((float)-6.3, y);
+            }
         }
         if (Input.GetKey("right"))
         {
             transform.Translate(Vector2.right * speed);
+            if (transform.position.x > 6.3)
+            {
+                if (GameManager.instance.enemyNum == 0)
+                {
+                    SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+                }
+                float y = transform.position.y;
+                transform.position = new Vector2((float)6.3, y);
+            }
         }
 
         if (Input.GetKey("up") && !anim.GetBool("isJumping"))
