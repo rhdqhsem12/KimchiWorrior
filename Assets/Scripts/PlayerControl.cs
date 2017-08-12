@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     public float speed;
+    public float jumpSpeed;
+    public float gravity;
+    private float ySpeed = 0;
 	private Animator anim;
     private PolygonCollider2D ccd;
 
@@ -26,8 +29,26 @@ public class PlayerControl : MonoBehaviour {
             transform.Translate(Vector2.right * speed);
         }
 
-        anim.SetBool("isAttack", Input.GetKeyDown(KeyCode.Z));
+        if (Input.GetKey("up") && !anim.GetBool("isJumping"))
+        {
+            ySpeed = jumpSpeed;
+            anim.SetBool("isJumping", true);
+        }
 
+        if (anim.GetBool("isJumping"))
+        {
+            transform.Translate(Vector2.up * ySpeed);
+            ySpeed -= gravity;
+        }
+
+        if (transform.position.y < -2.3)
+        {
+            float x = transform.position.x;
+            transform.position = new Vector2(x, (float)-2.3);
+            anim.SetBool("isJumping", false);
+        }
+
+        anim.SetBool("isAttack", Input.GetKeyDown(KeyCode.Z));
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
         {
             ccd.enabled = true;
