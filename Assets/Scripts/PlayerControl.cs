@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     public float speed;
-	public float _Attack;
 	private Animator anim;
+    private PolygonCollider2D ccd;
 
     
 	// Use this for initialization
 	void Start () {
-		anim = this.GetComponent<Animator> ();	
+		anim = this.GetComponent<Animator>();
+        ccd = transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>();
+        ccd.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKey("left"))
+        if (Input.GetKey("left"))
         {
             transform.Translate(Vector2.left * speed);
         }
@@ -23,12 +25,16 @@ public class PlayerControl : MonoBehaviour {
         {
             transform.Translate(Vector2.right * speed);
         }
-		if (Input.GetKeyDown(KeyCode.Z) || Input.GetKey(KeyCode.Z)) {
-			anim.SetFloat ("_Attack", 1);
+
+        anim.SetBool("isAttack", Input.GetKeyDown(KeyCode.Z));
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
+        {
+            ccd.enabled = true;
 		}
-		if(Input.GetKeyUp (KeyCode.Z))
-			{
-			anim.SetFloat ("_Attack", 0);
-   			 }
+        else
+        {
+            ccd.enabled = false;
+        }
 	}
-			}
+}
