@@ -52,9 +52,11 @@ public class PlayerControl : MonoBehaviour {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
         {
             ccd.enabled = true;
+			SoundManager.instance.PlaySound();
 		}
         else
         {
+			
             ccd.enabled = false;
         }
 	}
