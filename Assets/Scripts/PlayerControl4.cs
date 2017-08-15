@@ -10,14 +10,15 @@ public class PlayerControl4 : MonoBehaviour {
     public float gravity;
     private float ySpeed = 0;
 	private Animator anim;
-    private PolygonCollider2D ccd;
-
+    private CircleCollider2D ccd;
+    bool isJumping;
     
 	// Use this for initialization
 	void Start () {
 		anim = this.GetComponent<Animator>();
-        ccd = transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>();
+        ccd = transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
         ccd.enabled = false;
+        isJumping = false;
 	}
 	
 	// Update is called once per frame
@@ -40,49 +41,48 @@ public class PlayerControl4 : MonoBehaviour {
             {
                 if (GameManager.instance.enemyNum == 0)
                 {
-                    SceneManager.LoadScene("Level4", LoadSceneMode.Single);
+                    SceneManager.LoadScene("Ending", LoadSceneMode.Single);
                 }
                 float y = transform.position.y;
                 transform.position = new Vector2((float)6.3, y);
             }
         }
 
-        if (Input.GetKey("up") && !anim.GetBool("isJumping"))
+        if (Input.GetKey("up") && !isJumping)
         {
             ySpeed = jumpSpeed;
-            SoundManager.instance.PlayJumpSound();
-            anim.SetBool("isJumping", true);
+            PsySoundManager.instance.PlayJumpSound();
+            isJumping = true;
         }
 
-        if (anim.GetBool("isJumping"))
+        if (isJumping)
         {
             transform.Translate(Vector2.up * ySpeed);
             ySpeed -= gravity;
         }
 
-        if (transform.position.y < -2.3)
+        if (transform.position.y < -1.7)
         {
             float x = transform.position.x;
-            transform.position = new Vector2(x, (float)-2.3);
-            anim.SetBool("isJumping", false);
+            transform.position = new Vector2(x, (float)-1.7);
+            isJumping = false;
         }
 
         bool isAttacked = Input.GetKeyDown(KeyCode.Z);
-        if (isAttacked && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
-            SoundManager.instance.PlayHitSound();
+        if (isAttacked && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.psy_attack"))
+            PsySoundManager.instance.PlayHitSound();
         anim.SetBool("isAttack", isAttacked);
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.psy_attack"))
         {
             ccd.enabled = true;
         }
         else
         {
-
             ccd.enabled = false;
         }
         if (hp <= 0)
         {
-            BgmManager.instance.StopBgm();
+            Destroy(GameObject.Find("GS"));
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
 	}

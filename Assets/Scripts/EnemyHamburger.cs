@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class EnemyHamburger : MonoBehaviour {
     public bool isStart;
     public int hp;

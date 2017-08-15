@@ -40,7 +40,8 @@ public class PlayerControl3 : MonoBehaviour {
             {
                 if (GameManager.instance.enemyNum == 0)
                 {
-                    SceneManager.LoadScene("Boss", LoadSceneMode.Single);
+                    BgmManager.instance.StopBgm();
+                    SceneManager.LoadScene("Level4", LoadSceneMode.Single);
                 }
                 float y = transform.position.y;
                 transform.position = new Vector2((float)6.3, y);

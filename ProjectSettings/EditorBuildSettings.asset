@@ -15,20 +15,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: 99c9f160ecfa59143bb341a306a87b54
   - enabled: 1
-    path: Assets/Scenes/Boss.unity
-    guid: bd7d41d573a0ed749aca8f9ebba8c72a
-  - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: 548066aac02c5d4469871d96d8356009
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 09fafe3eb12d2b0408766699802d1a5c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 955df0ee8340e0741891f756e6cfd79f
   - enabled: 0
     path: 
     guid: 3b4620a27b5e04e4ca3183d1bb156737
   - enabled: 0
     path: 
     guid: ed5ccbdd427576e49952dd5dcf5f824d
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 955df0ee8340e0741891f756e6cfd79f
   - enabled: 0
     path: 
     guid: 74d1a5be4c3f8e14cb7dcc2250e76fdc
